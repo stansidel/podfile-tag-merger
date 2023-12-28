@@ -1,0 +1,55 @@
+source "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/externalframework/CocoaPodsSpecs.git"
+
+platform :ios, '13.3'
+
+def opg_shared_services_pod_dependencies
+  pod 'AppCoreServices', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/coreservices.git", :tag => "51.4.0"
+  pod 'AppNetworkService', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/gpbnetworkservice.git", :tag => "8.5.0"
+  pod 'AppLogger', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/applogger.git", :tag => "2.1.0"
+  pod 'CoreFeatureToggles', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/core-feature-toggles.git", :tag => "8.0.0"
+  pod 'MobileDataSDK', :git => 'git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/ideas/mobiledatasdk.git', :tag => "3.0.0"
+  pod 'PCSDKModule', :git => 'git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/externalframework/pcsdk.git', :tag => "5.5.473"
+end
+
+def app_common_modules_pod_dependencies
+  # TODO: удалить после того как будет убрана зависимость из AppCommonModules
+  pod 'AppSharedService', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/gpbsharedservice.git", :tag => "18.0.1"
+end
+
+def common_pods
+  pod 'AnalyticsSystem', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/analyticssystem.git", :tag => "7.0.0"
+  pod 'AppBaseComponents', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/gpbbasecomponents.git", :tag => "11.1.0"
+  pod 'AppCommonModules', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/commonmodules.git", :tag => "22.4.0"
+  pod 'AppFoundation', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/gpbfoundation.git", :tag => "26.12.0"
+  pod 'AppResources', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/gpbresources.git", :tag => "25.0.3"
+  pod 'DesignSystem', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/designsystem.git", :tag => "103.0.0"
+  pod 'FeatureComponents', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/featurecomponents", :tag => "17.3.0"
+  pod 'AppFeatureToggles', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/feature-toggles.git", :tag => "100.1.0"
+  pod 'OPGSharedServices', :git => "git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/opgsharedservices.git", :tag => "184.1.3"
+end
+
+def modules
+  pod 'ProductSettings', path: '../', :testspecs => ['Tests']
+end
+
+target 'ProductSettingsSandbox' do
+  use_frameworks!
+  common_pods
+  modules
+  opg_shared_services_pod_dependencies
+  app_common_modules_pod_dependencies
+end
+
+target 'ProductSettingsPactTests' do
+  use_frameworks!
+  common_pods
+  modules
+  opg_shared_services_pod_dependencies
+  app_common_modules_pod_dependencies
+  pod 'RxBlocking'
+
+  # Зависимости для контрактного тестирования
+  pod 'PactSwift', :git => 'git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/externalframework/PactSwift.git', :tag => "v1.1.0-pods"
+  pod 'PactMockServer', :git => 'git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/externalframework/PactMockServer.git', :tag => "v0.1.2-pods"
+  pod 'PactSwiftMockServer', :git => 'git@gitlab.dev.gazprombank.ru:client-side/platform-specific/mobile/ios/frameworks/externalframework/PactSwiftMockServer.git', :tag => "v0.4.3-pods"
+end
