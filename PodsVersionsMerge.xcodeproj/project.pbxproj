@@ -11,6 +11,8 @@
 		2C4B1DD32B3D505100E66986 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B1DD22B3D505100E66986 /* ContentView.swift */; };
 		2C4B1DD52B3D505200E66986 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B1DD42B3D505200E66986 /* Assets.xcassets */; };
 		2C4B1DD82B3D505200E66986 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B1DD72B3D505200E66986 /* Preview Assets.xcassets */; };
+		2C4B1DE12B3D52A000E66986 /* VersionMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B1DE02B3D52A000E66986 /* VersionMerger.swift */; };
+		2C4B1DE32B3D69C700E66986 /* FilePermissionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B1DE22B3D69C700E66986 /* FilePermissionChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		2C4B1DD42B3D505200E66986 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C4B1DD72B3D505200E66986 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2C4B1DD92B3D505200E66986 /* PodsVersionsMerge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PodsVersionsMerge.entitlements; sourceTree = "<group>"; };
+		2C4B1DE02B3D52A000E66986 /* VersionMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionMerger.swift; sourceTree = "<group>"; };
+		2C4B1DE22B3D69C700E66986 /* FilePermissionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePermissionChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +56,13 @@
 		2C4B1DCF2B3D505100E66986 /* PodsVersionsMerge */ = {
 			isa = PBXGroup;
 			children = (
+				2C4B1DDF2B3D529000E66986 /* VersionMerger */,
 				2C4B1DD02B3D505100E66986 /* PodsVersionsMergeApp.swift */,
 				2C4B1DD22B3D505100E66986 /* ContentView.swift */,
 				2C4B1DD42B3D505200E66986 /* Assets.xcassets */,
 				2C4B1DD92B3D505200E66986 /* PodsVersionsMerge.entitlements */,
 				2C4B1DD62B3D505200E66986 /* Preview Content */,
+				2C4B1DE22B3D69C700E66986 /* FilePermissionChecker.swift */,
 			);
 			path = PodsVersionsMerge;
 			sourceTree = "<group>";
@@ -67,6 +73,14 @@
 				2C4B1DD72B3D505200E66986 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2C4B1DDF2B3D529000E66986 /* VersionMerger */ = {
+			isa = PBXGroup;
+			children = (
+				2C4B1DE02B3D52A000E66986 /* VersionMerger.swift */,
+			);
+			path = VersionMerger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4B1DE32B3D69C700E66986 /* FilePermissionChecker.swift in Sources */,
+				2C4B1DE12B3D52A000E66986 /* VersionMerger.swift in Sources */,
 				2C4B1DD32B3D505100E66986 /* ContentView.swift in Sources */,
 				2C4B1DD12B3D505100E66986 /* PodsVersionsMergeApp.swift in Sources */,
 			);
