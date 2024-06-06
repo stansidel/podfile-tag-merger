@@ -127,6 +127,21 @@ final class VersionMerger: VersionMergerProtocol {
     }
 
     private func shouldUpdate(tag currentTag: String, with newTag: String) -> Bool {
-        return newTag > currentTag
+        func parseVersion(_ version: String) -> [Int] {
+            return version.split(separator: ".").compactMap { Int($0) }
+        }
+        
+        let currentVersion = parseVersion(currentTag)
+        let newVersion = parseVersion(newTag)
+
+        for (current, new) in zip(currentVersion, newVersion) {
+            if new > current {
+                return true
+            } else if new < current {
+                return false
+            }
+        }
+
+        return newVersion.count > currentVersion.count
     }
 }
